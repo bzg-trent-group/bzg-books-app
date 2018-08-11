@@ -21,7 +21,7 @@ export class BooksListService {
   user: firebase.User;
 
   constructor(private http: HttpClient, private alertService: MessagesService, private authFire: AngularFireAuth,
-    rdb: AngularFireDatabase) {
+    private rdb: AngularFireDatabase) {
     this.booksList.next({ kind: "", totalItems: 0, items: [] });
     authFire.authState
       .subscribe(
@@ -85,8 +85,9 @@ export class BooksListService {
     this.favsRef.push(book).then(_ => this.alertService.message("Agregado a Favoritos", "success"));
   }
 
-  addToCollection(book: any, collectionId: string) {
-    console.log('This method should add the book', book, 'on collection with id', collectionId);
+  addToCollection(book: any, collectionId: string = 'default') {
+    let collectionRef: AngularFireList<any> = this.rdb.list(`collections/${this.user.uid}}/${collectionId}`);
+    collectionRef.push(book.id);
   }
 
   getBook(id: string): Observable<any> {

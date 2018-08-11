@@ -36,7 +36,6 @@ export class BookDetailComponent implements OnInit {
   }
 
   addToCollection(bookCollection: any) {
-    console.log('bookCollection', bookCollection);
     this.bookService.addToCollection(bookCollection.book, bookCollection.collectionId);
   }
 }
