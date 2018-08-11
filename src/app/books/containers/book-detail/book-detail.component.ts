@@ -35,6 +35,8 @@ export class BookDetailComponent implements OnInit {
     this.bookService.addFavorites(book);
   }
 
-
-
+  addToCollection(bookCollection: any) {
+    console.log('bookCollection', bookCollection);
+    this.bookService.addToCollection(bookCollection.book, bookCollection.collectionId);
+  }
 }

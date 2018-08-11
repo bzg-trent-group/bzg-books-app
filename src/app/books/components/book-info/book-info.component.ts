@@ -9,6 +9,7 @@ export class BookInfoComponent implements OnInit {
 
   @Input() book:any;
   @Output() pushFavorite = new EventEmitter<any>();
+  @Output() pushToCollection = new EventEmitter<any>();
 
   constructor() { }
 
@@ -18,5 +19,12 @@ export class BookInfoComponent implements OnInit {
 
   addFavorite(){
     this.pushFavorite.emit(this.book);
+  }
+
+  addToCollection() {
+    this.pushToCollection.emit({
+      book: this.book,
+      collectionId: 'default'
+    });
   }
 }

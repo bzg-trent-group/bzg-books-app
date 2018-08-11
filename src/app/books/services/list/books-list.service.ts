@@ -83,7 +83,11 @@ export class BooksListService {
 
   addFavorites(book: any) {
     this.favsRef.push(book).then(_ => this.alertService.message("Agregado a Favoritos", "success"));
-  }  
+  }
+
+  addToCollection(book: any, collectionId: string) {
+    console.log('This method should add the book', book, 'on collection with id', collectionId);
+  }
 
   getBook(id: string): Observable<any> {
     let url = this.url + `volumes/${id}`;
