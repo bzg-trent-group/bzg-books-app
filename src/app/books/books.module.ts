@@ -6,12 +6,13 @@ import { routes } from "./routes.books";
 import { BooksMainComponent } from "./containers/books-main/";
 import { BookDetailComponent } from "./containers/book-detail/";
 import { BookInfoComponent } from './components/book-info/book-info.component';
+import { BookRelatedComponent } from './components/book-related/book-related.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [BooksMainComponent, BookDetailComponent, BookInfoComponent]
+  declarations: [BooksMainComponent, BookDetailComponent, BookInfoComponent, BookRelatedComponent]
 })
 export class BooksModule { }
