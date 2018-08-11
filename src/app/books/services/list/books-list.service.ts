@@ -53,9 +53,36 @@ export class BooksListService {
       );
   }
 
+  searchRelatedBooksByAuthor(author: string, currentBookId: string = '', startIndex: number = 0, maxResults: number = 5): Observable<BookList> {
+    let url = this.url + `volumes?q=+inauthor:${escape(author)}`;
+
+    if (startIndex) {
+      url += `&startIndex=${startIndex}`;
+    }
+
+    if (maxResults) {
+      url += `&maxResults=${maxResults}`;
+    }
+
+    return this.http.get<BookList>(url)
+      .pipe(
+        catchError(this.handleError<BookList>('Get Related books list', null)),
+        map((bookList: BookList) => {
+          let resultCount = 0;
+          bookList.items = bookList.items.filter((book: any) => {
+            const isCurrentBook = book.id === currentBookId;
+
+            resultCount += isCurrentBook ? 0 : 1;
+            return book.id !== currentBookId && resultCount <= 4; 
+          });
+
+          return bookList;
+        }) 
+      );
+  }
+
   addFavorites(book: any) {
     this.favsRef.push(book).then(_ => this.alertService.message("Agregado a Favoritos", "success"));
-
   }  
 
   getBook(id: string): Observable<any> {
