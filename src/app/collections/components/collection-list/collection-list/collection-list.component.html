@@ -2,9 +2,7 @@
   <h4>{{collection.name}}</h4>
 
   <div class="collection-items">
-    <!-- {{ collection.items | json }} -->
     <div class="collection-item" *ngFor="let book of collection.items">
-      <!-- {{ book.volumeInfo | json }} -->
       <img [src]="book.volumeInfo?.imageLinks?.smallThumbnail" class="book-image">
       <p>{{book.volumeInfo?.title}}</p>
       <p>{{book.volumeInfo?.publisher}}</p>

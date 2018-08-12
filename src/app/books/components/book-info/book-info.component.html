@@ -23,11 +23,20 @@
         <button class="btn btn-primary" (click)="addFavorite()">
           <i class="fa fa-heart"></i> Favorito
         </button>
-
+      </div>
+    </div>
+    <div class="row">
+      <a (click)="loadCollections()">Añadir a collección</a>
+      <div class="col-12">
         <button class="btn btn-primary" (click)="addToCollection()">
           <i class="fa fa-info"></i> Añadir a colección
         </button>
+
+        <select>
+          <option *ngFor="let collection of userCollections" value="{{collection.id}}">{{collection.name}}</option>
+        </select>
       </div>
     </div>
+        
   </div>
 </div>

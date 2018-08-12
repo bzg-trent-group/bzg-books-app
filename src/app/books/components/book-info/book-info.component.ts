@@ -8,17 +8,21 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class BookInfoComponent implements OnInit {
 
   @Input() book:any;
+  @Input() userCollections: Array<any>;
   @Output() pushFavorite = new EventEmitter<any>();
   @Output() pushToCollection = new EventEmitter<any>();
+  @Output() pushLoadCollections = new EventEmitter<any>();
 
   constructor() { }
 
-  ngOnInit() 
-  {
-  }
+  ngOnInit() { }
 
   addFavorite(){
     this.pushFavorite.emit(this.book);
+  }
+
+  loadCollections() {
+    this.pushLoadCollections.emit();
   }
 
   addToCollection() {

@@ -18,6 +18,8 @@ export class BooksListService {
   url = environment.apiBooks;
   booksList: Subject<BookList> = new Subject();
   favsRef: AngularFireList<any>;
+  collectionsRef: AngularFireList<any>;
+  collections$: Observable<any> = of([]);
   user: firebase.User;
 
   constructor(private http: HttpClient, private alertService: MessagesService, private authFire: AngularFireAuth,
@@ -28,6 +30,8 @@ export class BooksListService {
         user => {
           this.user = user;
           this.favsRef = rdb.list('favorites/' + this.user.uid);
+          this.collectionsRef = rdb.list(`collections/${this.user.uid}`);
+          this.collections$ = this.collectionsRef.valueChanges();
         }
       );
   }
@@ -85,13 +89,20 @@ export class BooksListService {
     this.favsRef.push(book).then(_ => this.alertService.message("Agregado a Favoritos", "success"));
   }
 
+  // TODO: Move to Collection Service
   addToCollection(book: any, collectionId: string = 'default') {
     let collectionRef: AngularFireList<any> = this.rdb.list(`collections/${this.user.uid}`, ref => ref.orderByChild('id').equalTo(collectionId));
 
     collectionRef.snapshotChanges()
       .subscribe((res: any) => {
-        this.rdb.list(`collections/${this.user.uid}/${res[0].key}/items`).push(book);
+        this.rdb.list(`collections/${this.user.uid}/${res[0].key}/items`).push(book)
+          .then(_ => this.alertService.message("Agregado a la coleccion", "success"));;
       });
+  }
+
+  // TODO: Move to Collection Service
+  getCollections() {
+    return this.collections$;      
   }
 
   getBook(id: string): Observable<any> {
