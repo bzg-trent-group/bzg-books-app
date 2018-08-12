@@ -1,3 +1,10 @@
-<p>
-  collections works!
-</p>
+<section class="container content">
+  <div class="row">
+    <div class="col-12">
+      <h2>Mis Colecciones</h2>
+    </div>
+  </div>
+  <div class="row" *ngFor="let collection of collectionList | async">
+    <app-collection-list [collection]="collection" class="col-12"></app-collection-list>
+  </div>
+</section>
