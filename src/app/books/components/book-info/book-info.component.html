@@ -26,15 +26,16 @@
       </div>
     </div>
     <div class="row">
-      <a (click)="loadCollections()">Añadir a collección</a>
+      <a (click)="loadCollections()">Añadir a una collección</a>
       <div class="col-12">
-        <button class="btn btn-primary" (click)="addToCollection()">
-          <i class="fa fa-info"></i> Añadir a colección
-        </button>
+        <select (change)="selectCollection($event.target.value)">
+          <option value="0">...</option> 
+          <option *ngFor="let collection of userCollections" value="{{collection.id}}">{{collection.name}}</option> 
+        </select> 
 
-        <select>
-          <option *ngFor="let collection of userCollections" value="{{collection.id}}">{{collection.name}}</option>
-        </select>
+        <button class="btn btn-primary" (click)="addToCollection()">
+          <i class="fa fa-info"></i> Añadir
+        </button>
       </div>
     </div>
         

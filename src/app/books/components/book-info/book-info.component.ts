@@ -12,6 +12,7 @@ export class BookInfoComponent implements OnInit {
   @Output() pushFavorite = new EventEmitter<any>();
   @Output() pushToCollection = new EventEmitter<any>();
   @Output() pushLoadCollections = new EventEmitter<any>();
+  targetCollectionId: any = null;
 
   constructor() { }
 
@@ -28,7 +29,12 @@ export class BookInfoComponent implements OnInit {
   addToCollection() {
     this.pushToCollection.emit({
       book: this.book,
-      collectionId: 'default'
+      collectionId: this.targetCollectionId ? this.targetCollectionId.id : 'default'
     });
+  }
+
+  selectCollection(collectionId: any) {
+    console.log('My collection', collectionId);
+    this.targetCollectionId = collectionId !== '0' ? collectionId : null;
   }
 }
