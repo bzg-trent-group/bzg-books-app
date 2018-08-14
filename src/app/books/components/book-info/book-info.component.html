@@ -27,15 +27,17 @@
     </div>
     <div class="row">
       <a (click)="loadCollections()">Añadir a una collección</a>
-      <div class="col-12">
-        <select (change)="selectCollection($event.target.value)">
+      <div class="col-12" *ngIf="displayCollectionForm">
+        <select (change)="selectCollection($event.target.value)" #collectionSelect>
           <option value="0">...</option> 
           <option *ngFor="let collection of userCollections" value="{{collection.id}}">{{collection.name}}</option> 
-        </select> 
+        </select>
 
-        <button class="btn btn-primary" (click)="addToCollection()">
+        <input type="text" #newCollection name="new-collection" id="new-collection" *ngIf="targetCollectionId == null" [(ngModel)]="newCollectionName" required>
+
+        <button class="btn btn-primary" (click)="addToCollection(targetCollectionId == null ? newCollectionName : targetCollectionId)">
           <i class="fa fa-info"></i> Añadir
-        </button>
+        </button>  
       </div>
     </div>
         

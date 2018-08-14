@@ -37,12 +37,10 @@ export class BookDetailComponent implements OnInit {
     this.bookService.addFavorites(book);
   }
 
-  //TODO: Move to CollectionsService
   addToCollection(bookCollection: any) {
     this.bookService.addToCollection(bookCollection.book, bookCollection.collectionId);
   }
 
-  //TODO: Move to CollectionsService
   getCollections() {
     if (this.bookService.collections$) {
       this.userCollections$ = this.bookService.collections$;

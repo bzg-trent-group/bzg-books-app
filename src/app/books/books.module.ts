@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from "@angular/router";
+import { FormsModule } from "@angular/forms";
 
 import { routes } from "./routes.books";
 import { BooksMainComponent } from "./containers/books-main/";
@@ -11,7 +12,8 @@ import { BookRelatedComponent } from './components/book-related/book-related.com
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    FormsModule
   ],
   declarations: [BooksMainComponent, BookDetailComponent, BookInfoComponent, BookRelatedComponent]
 })

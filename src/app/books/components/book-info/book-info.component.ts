@@ -13,6 +13,8 @@ export class BookInfoComponent implements OnInit {
   @Output() pushToCollection = new EventEmitter<any>();
   @Output() pushLoadCollections = new EventEmitter<any>();
   targetCollectionId: any = null;
+  displayCollectionForm: boolean = false;
+  newCollectionName: string = '';
 
   constructor() { }
 
@@ -23,18 +25,18 @@ export class BookInfoComponent implements OnInit {
   }
 
   loadCollections() {
+    this.displayCollectionForm = true;
     this.pushLoadCollections.emit();
   }
 
-  addToCollection() {
+  addToCollection(collectionName: any) {
     this.pushToCollection.emit({
       book: this.book,
-      collectionId: this.targetCollectionId ? this.targetCollectionId.id : 'default'
+      collectionId: collectionName
     });
   }
 
   selectCollection(collectionId: any) {
-    console.log('My collection', collectionId);
     this.targetCollectionId = collectionId !== '0' ? collectionId : null;
   }
 }
