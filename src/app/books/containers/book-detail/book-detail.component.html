@@ -1,5 +1,9 @@
 <div class="book">
-  <app-book-info [book]="book" (pushFavorite)="addFavorite($event)"></app-book-info>
+  <app-book-info [book]="book" [userCollections]="userCollections$ | async"
+    (pushFavorite)="addFavorite($event)"
+    (pushLoadCollections)="getCollections($event)"
+    (pushToCollection)="addToCollection($event)">
+  </app-book-info>
 
   <app-book-related *ngIf="book.volumeInfo?.authors?.length > 0" [author]="book.volumeInfo?.authors[0]"></app-book-related>
 </div>
