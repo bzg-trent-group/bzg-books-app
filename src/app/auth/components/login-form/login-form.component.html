@@ -12,29 +12,19 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-8">
-      <div class="checkbox icheck">
-        <label>
-          <input type="checkbox"> Remember Me
-        </label>
-      </div>
+    <div class="col-12 text-center">
+      <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-primary btn-link">Sign In</button>
     </div>
-    <!-- /.col -->
-    <div class="col-xs-4">
-      <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-    </div>
-    <!-- /.col -->
   </div>
 </form>
 
 <div class="social-auth-links text-center">
   <p>- OR -</p>
-  <a class="btn btn-block btn-social btn-google btn-flat" (click)="signGoogle()">
+  <span class="btn-google btn btn-primary btn-round" (click)="signGoogle()">
     <i class="fa fa-google-plus"></i> Sign in using Google+
-  </a>
+  </span>
 </div>
-<!-- /.social-auth-links -->
 
-<a href="#">I forgot my password</a>
+<!-- <a href="#">I forgot my password</a>
 <br>
-<a href="register.html" class="text-center">Register a new membership</a>
+<a href="register.html" class="text-center">Register a new membership</a> -->
