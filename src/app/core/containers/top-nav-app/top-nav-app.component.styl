@@ -1,29 +1,28 @@
-div
-  &.top-container
-    padding 0
-    margin 0
+.top-container
+  padding 0
+  margin 0
 
-header
-  &.top-header
-    height 50px
-    position relative
-    z-index 500
+.top-header
+  height 50px
+  position fixed
+  z-index 500
+  background: #eee
 
-    .left-header
-      .toggle-sidebar
-        height 50px
-        padding 15px 15px
-        display inline-block
-        cursor pointer
-        & > i
-          display inline-block
-    .right-header
+  .left-header
+    .toggle-sidebar
       height 50px
-      .top-form
-        height inherit
-      a
-        cursor pointer
+      padding 15px 15px
+      display inline-block
+      cursor pointer
+      & > i
+        display inline-block
+  .right-header
+    height 50px
+    .top-form
+      height inherit
+    a
+      cursor pointer
 
-        &.link-profile
-          padding 15px
-          font-size 1.6em
+      &.link-profile
+        padding 15px
+        font-size 1.6em

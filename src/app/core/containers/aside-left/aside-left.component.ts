@@ -13,7 +13,7 @@ import { AngularFireAuth } from "angularfire2/auth";
         width: "50px"        
       })),
       state('open', style({
-        width: "300px"
+        width: "auto"
       })),
       transition('open => close', animate('100ms ease-out')),
       transition('close => open', animate('100ms ease-in'))
