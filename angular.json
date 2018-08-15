@@ -28,6 +28,7 @@
             ],
             "styles": [
               "src/assets/css/material-kit.min.css",
+              "src/assets/css/material-dashboard.min.css",
               "node_modules/font-awesome/css/font-awesome.min.css",
               "src/styles.styl"              
             ],

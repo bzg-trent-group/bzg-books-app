@@ -1,32 +1,29 @@
 div
-    &.top-container
-        padding 0
-        margin 0
+  &.top-container
+    padding 0
+    margin 0
 
 header
-    &.top-header
+  &.top-header
+    height 50px
+    position relative
+    z-index 500
+
+    .left-header
+      .toggle-sidebar
         height 50px
-        background-color var(--main-style-color)
-        position relative
-        z-index 500
-        h1
-            display inline
-            font-size 1.4em
-        .left-header
-            .toggle-sidebar
-                color var(--main-title-color)
-                height 50px
-                padding 15px 15px
-                display inline-block
-                &:hover
-                    background-color rgba(0, 0, 0, .4)
-                & > i
-                    display inline-block
-        .right-header
-            height 50px
-            .top-form
-                height inherit
-            a
-                &.link-profile
-                    padding 15px
-                    font-size 1.6em
+        padding 15px 15px
+        display inline-block
+        cursor pointer
+        & > i
+          display inline-block
+    .right-header
+      height 50px
+      .top-form
+        height inherit
+      a
+        cursor pointer
+
+        &.link-profile
+          padding 15px
+          font-size 1.6em

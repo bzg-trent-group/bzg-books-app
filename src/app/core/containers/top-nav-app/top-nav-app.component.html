@@ -4,21 +4,18 @@
       <a class="toggle-sidebar" (click)="closeAside()">
         <i class="fa fa-bars"></i>
       </a>
-      <h1>My Books App</h1>
+      <h1 class="navbar-brand">My Books App</h1>
     </div>
 
     <div class="col-4 right-header">
-      <div class="row align-items-center top-form">
-        <div class="col-6">
-          <app-search-form (searchText)="searchText($event)"></app-search-form>
-        </div>
-        <div class="col-6">
+      <div class="row align-items-center justify-content-end top-form">
+        <app-search-form (searchText)="searchText($event)"></app-search-form>
+        <div>
           <a class="link-profile">
             <i class="fa fa-user-circle"></i>
           </a>
         </div>
       </div>
-
     </div>
   </div>
 </header>
