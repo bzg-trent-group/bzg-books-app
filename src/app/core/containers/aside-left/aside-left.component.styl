@@ -7,8 +7,11 @@
   width 100%
 
 .header-aside
-  min-height 100px
   padding 16px 10px
 
   & > div
     float left
+
+:host-context(.aside-close)
+  .header-aside
+    min-height 0
