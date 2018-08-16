@@ -1,45 +1,59 @@
 <h1>{{book.volumeInfo?.title}}</h1>
 <div class="row">
-  <div class="col-lg-8 col-md-6 col-sm-12 col-12">
-    <p>
-      {{book.volumeInfo?.description}}
-    </p>
-    <p>
-      {{book.volumeInfo?.publisher}}
-    </p>
-    <p>
-      {{book.volumeInfo?.publishedDate}}
-    </p>
-  </div>
   <div class="col-lg-4 col-md-6 col-sm-12 col-12">
     <div class="row">
       <div class="col-12">
-        <img [src]="book.volumeInfo?.imageLinks?.large" class="book-image">
+        <img [src]="book.volumeInfo?.imageLinks?.medium" class="img-raised rounded img-fluid book-image">
       </div>
-    </div>
-    <br>
+
+      <div class="col-12">
+        <p class="book-detail">{{book.volumeInfo?.publisher}}</p>
+        <p class="book-detail">{{book.volumeInfo?.publishedDate}}</p>
+      </div>
+    </div>    
+  </div>
+  <div class="col-lg-8 col-md-6 col-sm-12 col-12">
+    <p class="book-description">{{book.volumeInfo?.description ? book.volumeInfo?.description : 'Descripción no disponible'}}</p>
+    
     <div class="row">
       <div class="col-12">
         <button class="btn btn-primary" (click)="addFavorite()">
           <i class="fa fa-heart"></i> Favorito
         </button>
+
+        <a class="btn btn-flat" (click)="loadCollections()">Añadir a una collección</a>
       </div>
     </div>
-    <div class="row">
-      <a (click)="loadCollections()">Añadir a una collección</a>
-      <div class="col-12" *ngIf="displayCollectionForm">
+  </div>
+</div>
+
+
+<!-- <div *ngIf="displayCollectionForm" class="modal fade show" id="myModal" tabindex="-1" role="dialog" (click)="closeModal()"> -->
+<div class="modal fade show" [ngStyle]="{'display': displayCollectionForm ? 'block' : 'none'}" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Añadir a colección</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+          <i class="fa fa-close"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p>Selecciona la lista a la que quieres añadirlo, o crea una nueva</p>
         <select (change)="selectCollection($event.target.value)" #collectionSelect>
-          <option value="0">...</option> 
           <option *ngFor="let collection of userCollections" value="{{collection.id}}">{{collection.name}}</option> 
+          <option class="option-default" value="0">Nueva colección</option> 
         </select>
 
         <input type="text" #newCollection name="new-collection" id="new-collection" *ngIf="targetCollectionId == null" [(ngModel)]="newCollectionName" required>
+      </div>
 
+      <div class="modal-footer">
         <button class="btn btn-primary" (click)="addToCollection(targetCollectionId == null ? newCollectionName : targetCollectionId)">
           <i class="fa fa-info"></i> Añadir
-        </button>  
+        </button>
       </div>
     </div>
-        
   </div>
 </div>

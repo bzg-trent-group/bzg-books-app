@@ -100,7 +100,7 @@ export class BooksListService {
         (res: any) => {
           if (res && res.length && res.length > 0) {
             this.rdb.list(`collections/${this.user.uid}/${res[0].key}/items`).push(book)
-              .then(_ => this.alertService.message("Agregado a la coleccion", "success"));
+              .then(_ => this.alertService.message("Agregado a la coleccion ", "success"));
 
               return;
           } else {
@@ -111,7 +111,7 @@ export class BooksListService {
             }).child('items')
               .push(book)
               .then(_ => {
-                this.alertService.message("Agregado a la coleccion" + collectionId, "success")}
+                this.alertService.message("Agregado a la coleccion " + collectionId, "success")}
               );
 
               return;
