@@ -1,14 +1,18 @@
 <section class="container related-books" *ngIf="relatedBooksList">
   <h3>Libros relacionados</h3>
   <div class="row">
-    <div *ngFor="let book of relatedBooksList?.items; let idx = index" class="col-12 col-sm-12 col-md-3 col-lg-3">
+    <div *ngFor="let book of relatedBooksList?.items; let idx = index" class="col-12 col-sm-12 col-md-3 col-lg-3 related-item">
       <div class="card">
-        <img class="card-img-top img-raised rounded img-fluid" [src]="book.volumeInfo.imageLinks?.thumbnail">
-        <div class="card-footer">
-          <p class="card-text">
-            {{book.volumeInfo.title}}
-          </p>
-          <a class="col-12 col-md-auto col-lg-auto btn btn-primary" [routerLink]="['../', book.id]">Ver Detalle</a>
+        <div class="card-header card-header-image">
+          <img class="card-img-top img-raised rounded img-fluid" [src]="book.volumeInfo.imageLinks?.thumbnail">
+        </div>
+        <div class="card-body">
+          <p class="card-text card-title">{{book.volumeInfo.title}}</p>
+        </div>
+        <div class="card-footer justify-content-center">
+          <a class="btn btn-primary" [routerLink]="['../', book.id]">
+            <i class="fa fa-eye"></i>Ver
+          </a>
         </div>
       </div>
     </div>
