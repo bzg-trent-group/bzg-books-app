@@ -1,15 +1,17 @@
 <div class="card">
-  <div class="card-header">
-    {{book.volumeInfo.title}}
+  <div class="card-header card-header-image">
+    <img class="card-img-top" [src]="book.volumeInfo.imageLinks?.thumbnail">
   </div>
-  <img class="card-img-top" [src]="book.volumeInfo.imageLinks?.thumbnail">
   <div class="card-body">
+      <p class="card-title">{{book.volumeInfo.title}}</p>
     <p class="card-text">
       {{book.volumeInfo.publisher}}
     </p>
     <p class="card-text">
       {{book.volumeInfo.publishedDate}}
     </p>
-    <a class="col-12 col-md-auto col-lg-auto btn btn-primary" [routerLink]="['../../books/detail', book.id]">Ver Detalle</a>
+    <a class="col-12 col-md-auto col-lg-auto btn btn-primary" [routerLink]="['../../books/detail', book.id]">
+      <i class="fa fa-eye"></i>Ver
+    </a>
   </div>
 </div>

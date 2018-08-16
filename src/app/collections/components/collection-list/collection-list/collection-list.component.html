@@ -1,12 +1,35 @@
-<div class="collection">
-  <h4>{{collection.name}}</h4>
+<div class="collection" *ngIf="collection.items">
+  <div class="row">
+    <div class="col-12">
+      <h3>{{collection.name}} - {{collection.items.length}} libros</h3>
+    </div>
+  </div>
 
   <div class="collection-items">
-    <div class="collection-item" *ngFor="let book of collection.items">
-      <img [src]="book.volumeInfo?.imageLinks?.smallThumbnail" class="book-image">
-      <p>{{book.volumeInfo?.title}}</p>
-      <p>{{book.volumeInfo?.publisher}}</p>
-      <p>{{book.volumeInfo?.publishedDate}}</p>
+    <div class="row">
+      <div *ngFor="let book of collection.items" class="col-12 col-sm-12 col-md-6 col-lg-3">
+        <div class="card">
+          <div class="card-header card-header-image">
+            <img class="card-img-top img-raised rounded img-fluid" [src]="book.volumeInfo.imageLinks?.thumbnail">
+          </div>
+        
+          <div class="content card-body fill-highlight">
+            <p class="card-title">{{book.volumeInfo.title}}</p>
+            <p class="card-text">
+              {{book.volumeInfo.publisher}}
+            </p>
+            <p class="card-text">
+              {{book.volumeInfo.publishedDate}}
+            </p>
+          </div>
+          <div class="card-footer justify-content-center">
+            <a class="col-12 col-md-auto col-lg-auto btn btn-primary" [routerLink]="['../detail', book.id]">
+              <i class="fa fa-eye"></i>Ver
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
+
   </div>
 </div>

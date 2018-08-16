@@ -13,7 +13,7 @@ export class BooksMainComponent implements OnInit {
   booksList: BookList;
 
   constructor(private bookService: BooksListService) { 
-    this.bookService.searchBooks('Colombia');
+    this.bookService.searchBooks('Javascript', 0, 20);
   }
 
   ngOnInit() {    

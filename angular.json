@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "../../deployments/firebase/bzg-books-app-2/public",
+            "outputPath": "../../projects/deployments/firebase/books/public",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,8 +27,9 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",  
-              "node_modules/font-awesome/css/font-awesome.min.css",              
+              "src/assets/css/material-kit.min.css",
+              "src/assets/css/material-dashboard.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
               "src/styles.styl"              
             ],
             "scripts": []

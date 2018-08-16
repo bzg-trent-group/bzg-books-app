@@ -31,4 +31,7 @@ export class AlertMessagesComponent implements OnInit {
     );
   }
 
+  close() {
+    this.message = null;
+  }
 }

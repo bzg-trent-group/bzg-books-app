@@ -1,19 +1,24 @@
 <section class="container content">
   <div class="row">
-    <div *ngFor="let book of booksList?.items" class="col-12 col-sm-12 col-md-6 col-lg-3">
+    <div *ngFor="let book of booksList?.items" class="col-12 col-sm-12 col-md-6 col-lg-3 book-item">
       <div class="card">
-        <div class="card-header">
-          {{book.volumeInfo.title}}
+        <div class="card-header card-header-image">
+          <img class="card-img-top img-raised rounded img-fluid" [src]="book.volumeInfo.imageLinks?.thumbnail">
         </div>
-        <img class="card-img-top" [src]="book.volumeInfo.imageLinks?.thumbnail">
-        <div class="card-body">
+
+        <div class="content card-body fill-highlight">
+          <p class="card-title">{{book.volumeInfo.title}}</p>
           <p class="card-text">
             {{book.volumeInfo.publisher}}
           </p>
           <p class="card-text">
             {{book.volumeInfo.publishedDate}}
           </p>
-          <a class="col-12 col-md-auto col-lg-auto btn btn-primary" [routerLink]="['../detail', book.id]">Ver Detalle</a>
+        </div>
+        <div class="card-footer justify-content-center">
+          <a class="col-12 col-md-auto col-lg-auto btn btn-primary" [routerLink]="['../detail', book.id]">
+            <i class="fa fa-eye"></i>Ver
+          </a>
         </div>
       </div>
     </div>

@@ -26,6 +26,7 @@ export class BookInfoComponent implements OnInit {
 
   loadCollections() {
     this.displayCollectionForm = true;
+    console.log(this.displayCollectionForm);
     this.pushLoadCollections.emit();
   }
 
@@ -34,9 +35,15 @@ export class BookInfoComponent implements OnInit {
       book: this.book,
       collectionId: collectionName
     });
+    this.displayCollectionForm = false;
   }
 
   selectCollection(collectionId: any) {
     this.targetCollectionId = collectionId !== '0' ? collectionId : null;
+  }
+
+  closeModal() {
+    console.log(this.displayCollectionForm);
+    this.displayCollectionForm = false;
   }
 }

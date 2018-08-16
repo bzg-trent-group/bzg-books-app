@@ -1,15 +1,17 @@
-<div class="login-box">
-  <div class="login-logo">
-    <a href="">
-      <b>Bzg Books</b>APP</a>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+      <div class="card card-login login-box">
+        <div class="login-logo card-header card-header-primary text-center">
+          <h4 class="card-title">Bizagi Books</h4>
+        </div>
+      
+        <div class="login-box-body card-body">
+          <p class="login-box-msg">Inicia tu sesión para continuar</p>
+          <app-login-form (submitted)="login($event)" (signByGoogle)="signGoogle($event)"></app-login-form>
+        </div>
+      </div>      
+    </div>
   </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
-
-    <app-login-form (submitted)="login($event)" (signByGoogle)="signGoogle($event)"></app-login-form>
-
-  </div>
-  <!-- /.login-box-body -->
 </div>
-<!-- /.login-box -->
+

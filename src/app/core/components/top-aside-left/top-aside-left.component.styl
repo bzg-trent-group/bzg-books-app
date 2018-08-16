@@ -1,16 +1,25 @@
+:host
+  display flex
+  justify-content: space-between
+
 .user-image
-    & > img
-        width 80px
-        height 80px
-        border-radius 50px
+  & > img
+    width 60px
+    height 60px
+    border-radius 100%
 
 .user-info
-    padding 5px 10px
+  padding 5px 10px
+
+  h3, h4
+    margin-top 0
+
 
 :host-context(.aside-close)
-    .user-info
-        display none
-    .user-image
-        & > img
-            width 30px
-            height 30px
+  .user-info
+    display none
+
+  .user-image
+    & > img
+      width 30px
+      height 30px

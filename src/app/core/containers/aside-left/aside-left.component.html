@@ -1,8 +1,11 @@
-<aside class="left-aside" [@asideCollapse]="asideState" [ngClass]="(asideState == 'close')? 'aside-close': ''">
-  <div class="header-aside">
-    <app-top-aside-left [user]="user"></app-top-aside-left>
-  </div>
-  <div class="content-aside">
+<aside class="left-aside sidebar-nav sidebar" [@asideCollapse]="asideState" [ngClass]="(asideState == 'close')? 'aside-close': ''"
+  data-color="purple" data-background-color="white">
+  
+  <div class="content-aside sidebar-wrapper">
+    <div class="header-aside logo simple-text">
+      <app-top-aside-left [user]="user"></app-top-aside-left>
+    </div>
     <app-menu-aside-left></app-menu-aside-left>
   </div>
+  <div class="sidebar-background"></div>
 </aside>

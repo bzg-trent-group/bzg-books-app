@@ -1,7 +1,7 @@
 <div class="book">
   <app-book-info [book]="book" [userCollections]="userCollections$ | async"
     (pushFavorite)="addFavorite($event)"
-    (pushLoadCollections)="getCollections($event)"
+    (pushLoadCollections)="getCollections()"
     (pushToCollection)="addToCollection($event)">
   </app-book-info>
 
