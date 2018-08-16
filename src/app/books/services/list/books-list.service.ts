@@ -86,7 +86,7 @@ export class BooksListService {
   }
 
   addFavorites(book: any) {
-    this.favsRef.push(book).then(_ => this.alertService.message("Agregado a Favoritos", "success"));
+    this.favsRef.set(book.id, book).then(_ => this.alertService.message("Agregado a Favoritos", "success"));
   }
 
   addToCollection(book: any, collectionId: string = 'default') {
